@@ -23,16 +23,28 @@ export default function Layout() {
         <div className="offcanvas-body">
           <p>Menu do Usuário</p>
           <nav className="d-grid gap-2">
-            <NavLink className="btn btn-light" to="/">
+            <NavLink
+              className={({ isActive }) => (isActive ? 'btn btn-light' : 'btn btn-outline-light')}
+              to="/"
+            >
               Dashboard
             </NavLink>
-            <NavLink className="btn btn-outline-light" to="/rendas">
+            <NavLink
+              className={({ isActive }) => (isActive ? 'btn btn-light' : 'btn btn-outline-light')}
+              to="/rendas"
+              >
               Rendas
             </NavLink>
-            <NavLink className="btn btn-outline-light" to="/despesas">
+            <NavLink
+              className={({ isActive }) => (isActive ? 'btn btn-light' : 'btn btn-outline-light')}
+              to="/despesas"
+              >
               Despesas
             </NavLink>
-            <NavLink className="btn btn-outline-light" to="/metas">
+            <NavLink
+              className={({ isActive }) => (isActive ? 'btn btn-light' : 'btn btn-outline-light')}
+              to="/metas"
+            >
               Metas
             </NavLink>
           </nav>
