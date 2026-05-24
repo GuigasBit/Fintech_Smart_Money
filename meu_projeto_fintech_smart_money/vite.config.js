@@ -14,4 +14,7 @@ export default defineConfig({
       '@login': path.resolve(__dirname, './src/pages/Login.jsx'),
     },
   },
+  server: {
+    open: true, // Isso fará o navegador abrir automaticamente na rota raiz (/)
+  },
 });

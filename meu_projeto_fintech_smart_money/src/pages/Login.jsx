@@ -1,19 +1,19 @@
-import { useState } from 'react';
-import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthContext.jsx';
+import { useState } from "react";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext.jsx";
 
 export default function Login() {
   const { user, login } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
   const [credentials, setCredentials] = useState({
-    email: 'joao@smartmoney.com',
-    password: '123456',
+    email: "joao@smartmoney.com",
+    password: "123456",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   if (user) {
-    return <Navigate to="/" replace />;
+    return <Navigate to="/dashboard" replace />;
   }
 
   async function handleSubmit(event) {
@@ -21,7 +21,7 @@ export default function Login() {
     setIsSubmitting(true);
     await login(credentials);
     setIsSubmitting(false);
-    navigate(location.state?.from?.pathname || '/', { replace: true });
+    navigate(location.state?.from?.pathname || "/dashboard", { replace: true });
   }
 
   function handleChange(event) {
@@ -40,7 +40,8 @@ export default function Login() {
             <span className="auth-badge">Smart-Money</span>
             <h1>Seu dinheiro em ordem.</h1>
             <p>
-              Acesse sua conta para ver o saldo, suas rendas, despesas e metas do mês.
+              Acesse sua conta para ver o saldo, suas rendas, despesas e metas
+              do mês.
             </p>
           </div>
 
@@ -85,7 +86,7 @@ export default function Login() {
             </label>
 
             <button className="auth-submit" disabled={isSubmitting}>
-              {isSubmitting ? 'Entrando...' : 'Entrar'}
+              {isSubmitting ? "Entrando..." : "Entrar"}
             </button>
           </form>
 

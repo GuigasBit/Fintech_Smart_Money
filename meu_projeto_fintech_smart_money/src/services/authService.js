@@ -15,7 +15,8 @@ export async function loginUser(credentials) {
     }
 
     return response.json();
-  } catch {
+  } catch (error) {
+    console.error('Erro no loginUser:', error);
     return {
       id: 1,
       name: credentials.email?.split('@')[0] || 'João',
@@ -39,7 +40,8 @@ export async function registerUser(account) {
     }
 
     return response.json();
-  } catch {
+  } catch (error) {
+    console.error('Erro no registerUser:', error);
     return {
       id: Date.now(),
       name: account.name,
